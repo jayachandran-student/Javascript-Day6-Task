@@ -1,0 +1,57 @@
+a
+
+
+const xhr = new XMLHttpRequest();
+
+
+xhr.open('Get','https://restcountries.com/v3.1/all');
+
+xhr. send();
+
+xhr.onload = function () {
+    const response = JSON.parse(xhr.responseText);
+    console.log(response.filter((cty) => cty.population === 'Asia'));
+};
+
+
+
+
+b
+
+
+const xhr = new XMLHttpRequest();
+
+
+xhr.open('Get','https://restcountries.com/v3.1/all');
+
+xhr. send();
+
+xhr.onload = function () {
+    const response = JSON.parse(xhr.responseText);
+    console.log(response.filter((cty) => cty.population <= '200000'));
+};
+
+
+
+e
+
+
+
+
+const xhr = new XMLHttpRequest();
+
+
+xhr.open('Get','https://restcountries.com/v3.1/all');
+
+xhr. send();
+
+xhr.onload = function () {
+    const response = JSON.parse(xhr.responseText);
+    response.filter((cty) => {
+        const { correncies } = cty;
+
+        return Object.keys(correncies).includes("USD");
+    });
+};
+
+
